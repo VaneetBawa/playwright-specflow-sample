@@ -28,10 +28,11 @@ namespace SpecFlowPlaywrightXUnitExample.Steps
             string browserName =  JsonConvert.SerializeObject(_scenarioContext.ScenarioInfo.Arguments["browser"]).Replace("\"", "");
             user = Environment.GetEnvironmentVariable("LT_USERNAME");
             accessKey = Environment.GetEnvironmentVariable("LT_ACCESS_KEY");
+            buildName = Environment.GetEnvironmentVariable("LT_BUILD_NAME");
             Dictionary<string, string?> ltOptions = new Dictionary<string, string?>();
 
             ltOptions.Add("name", "Playwright Test");
-            ltOptions.Add("build", "Playwright C-Sharp SpecFlow Tests");
+            ltOptions.Add("build", buildName);
             ltOptions.Add("platform", "Windows 10");
             ltOptions.Add("user", user);
             ltOptions.Add("accessKey", accessKey);
